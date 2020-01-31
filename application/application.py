@@ -169,7 +169,7 @@ class Application(Cog):
         except asyncio.TimeoutError:
             return await ctx.send("You took too long. Try again, please.")
         await author.send("Anything else we should know about you?")
-         try:
+        try:
             atwskau = await bot.wait_for("message", timeout=18000, check=check)
         except asyncio.TimeoutError:
             return await ctx.send("You took too long. Try again, please.")
