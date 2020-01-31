@@ -169,6 +169,10 @@ class Application(Cog):
         except asyncio.TimeoutError:
             return await ctx.send("You took too long. Try again, please.")
         await author.send("Anything else we should know about you?")
+         try:
+            atwskau = await bot.wait_for("message", timeout=18000, check=check)
+        except asyncio.TimeoutError:
+            return await ctx.send("You took too long. Try again, please.")
 
 
         embed = discord.Embed(color=await ctx.embed_colour(), timestamp=datetime.now())
@@ -194,7 +198,7 @@ class Application(Cog):
         embed.add_field(name="How active do you consider your self on Omega?", value=spam.content, inline=False)
         embed.add_field(name="What would you do if someone breaks a rule in-game? Scenario (as a staff member): You log onto one of our servers, and you’re told that a clan is hacking.", value=abuse.content, inline=False)
         embed.add_field(name="Do you have a working microphone?", value=adultrex.content, inline=False)
-        embed.add_field(name="Anything else we should know about you?", value=voicechan.content, inline=False)
+        embed.add_field(name="Anything else we should know about you?", value=atwskau.content, inline=False)
 
         await channel.send(embed=embed)
 
