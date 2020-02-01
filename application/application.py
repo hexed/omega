@@ -120,7 +120,7 @@ class Application(Cog):
         except asyncio.TimeoutError:
             return await ctx.send("You took too long. Try again, please.")
 
-        await author.send("How many hours have you put in as an Admin/Moderator?")
+        await author.send("How many hours have you put in as an Admin/Moderator?:")
         try:
             hoursmod = await bot.wait_for("message", timeout=18000, check=check)
         except asyncio.TimeoutError:
@@ -128,49 +128,49 @@ class Application(Cog):
 
         await author.send("What can you bring to Omega Rust if you were selected?")
         try:
-            bringaurora = await bot.wait_for("message", timeout=18000, check=check)
+            bringomega = await bot.wait_for("message", timeout=18000, check=check)
         except asyncio.TimeoutError:
             return await ctx.send("You took too long. Try again, please.")
 			
-        await author.send("Have you ever used a hacked client before?")
+        await author.send("Have you ever used a hacked client before?:")
         try:
-            claimkos = await bot.wait_for("message", timeout=18000, check=check)
+            hackedclient = await bot.wait_for("message", timeout=18000, check=check)
         except asyncio.TimeoutError:
             return await ctx.send("You took too long. Try again, please.")
 			
-        await author.send("Have you ever been banned on a Rust server? If so, why and where?")
+        await author.send("Have you ever been banned on a Rust server? If so, why and where?:")
         try:
-            mixpack = await bot.wait_for("message", timeout=18000, check=check)
+            banned = await bot.wait_for("message", timeout=18000, check=check)
         except asyncio.TimeoutError:
             return await ctx.send("You took too long. Try again, please.")
-        await author.send("What do you consider your greatest strength? ")
+        await author.send("What do you consider your greatest strength?:")
         try:
-            dlisten = await bot.wait_for("message", timeout=18000, check=check)
+            strength = await bot.wait_for("message", timeout=18000, check=check)
         except asyncio.TimeoutError:
             return await ctx.send("You took too long. Try again, please.")
-        await author.send("What do you consider your greatest weakness? ")
+        await author.send("What do you consider your greatest weakness?:")
         try:
-            spam = await bot.wait_for("message", timeout=18000, check=check)
+            weakness = await bot.wait_for("message", timeout=18000, check=check)
         except asyncio.TimeoutError:
             return await ctx.send("You took too long. Try again, please.")
-        await author.send("How active do you consider your self on Omega?")
+        await author.send("How active do you consider your self on Omega?:")
         try:
-            abuse = await bot.wait_for("message", timeout=18000, check=check)
+            active = await bot.wait_for("message", timeout=18000, check=check)
         except asyncio.TimeoutError:
             return await ctx.send("You took too long. Try again, please.")
         await author.send("What would you do if someone breaks a rule in-game? Scenario (as a staff member): You log onto one of our servers, and you’re told that a clan is hacking.")
         try:
-            adultrex = await bot.wait_for("message", timeout=18000, check=check)
+            Scenario = await bot.wait_for("message", timeout=18000, check=check)
         except asyncio.TimeoutError:
             return await ctx.send("You took too long. Try again, please.")
         await author.send("Do you have a working microphone?")
         try:
-            voicechan = await bot.wait_for("message", timeout=18000, check=check)
+            mic = await bot.wait_for("message", timeout=18000, check=check)
         except asyncio.TimeoutError:
             return await ctx.send("You took too long. Try again, please.")
         await author.send("Anything else we should know about you?")
         try:
-            atwskau = await bot.wait_for("message", timeout=18000, check=check)
+            elseabout = await bot.wait_for("message", timeout=18000, check=check)
         except asyncio.TimeoutError:
             return await ctx.send("You took too long. Try again, please.")
 
@@ -189,16 +189,17 @@ class Application(Cog):
         embed.add_field(name="Age:", value=age.content, inline=True)
         embed.add_field(name="Timezone:", value=timezone.content, inline=True)
         embed.add_field(name="Availability:", value=availability.content, inline=True)
-        embed.add_field(name="How many hours have you put in as an Admin/Moderator? :", value=admexp.content, inline=False)
-        embed.add_field(name="What can you bring to Omega Rust if you were selected?", value=hoursmod.content, inline=False)
-        embed.add_field(name="Have you ever used a hacked client before?:", value=bringaurora.content, inline=False)
-        embed.add_field(name="Have you ever been banned on a Rust server? If so, why and where?", value=claimkos.content, inline=False)
-        embed.add_field(name="What do you consider your greatest strength?", value=mixpack.content, inline=False)
-        embed.add_field(name="What do you consider your greatest weakness?", value=dlisten.content, inline=False)
-        embed.add_field(name="How active do you consider your self on Omega?", value=spam.content, inline=False)
-        embed.add_field(name="What would you do if someone breaks a rule in-game? Scenario (as a staff member): You log onto one of our servers, and you’re told that a clan is hacking.", value=abuse.content, inline=False)
-        embed.add_field(name="Do you have a working microphone?", value=adultrex.content, inline=False)
-        embed.add_field(name="Anything else we should know about you?", value=atwskau.content, inline=False)
+        embed.add_field(name="How many hours have you put in as an Admin/Moderator?:", value=hoursmod.content, inline=False)
+        embed.add_field(name="What can you bring to Omega Rust if you were selected?:", value=bringomega.content, inline=False)
+        embed.add_field(name="Have you ever used a hacked client before?:", value=hackedclient.content, inline=False)
+        embed.add_field(name="Have you ever been banned on a Rust server? If so, why and where?:", value=banned.content, inline=False)
+        embed.add_field(name="What do you consider your greatest strength?:", value=strength.content, inline=False)
+        embed.add_field(name="What do you consider your greatest weakness?:", value=weakness.content, inline=False)
+        embed.add_field(name="How active do you consider your self on Omega?:", value=active.content, inline=False)
+        embed.add_field(name="What would you do if someone breaks a rule in-game? Scenario (as a staff member): You log onto one of our servers, and you’re told that a clan is hacking.:", value=Scenario.content, inline=False)
+        embed.add_field(name="Do you have a working microphone?:", value=mic.content, inline=False)
+        embed.add_field(name="Anything else we should know about you?:", value=elseabout.content, inline=False)
+
 
         await channel.send(embed=embed)
 
